@@ -207,10 +207,12 @@ document.addEventListener('keydown', (event) => {
   /* Switch languages */
   if (event.ctrlKey && event.altKey) {
     if (englishValue === 'true') {
-      englishValue = localStorage.english = 'false';
+      localStorage.english = 'false';
+      englishValue = localStorage.english;
       buildKeyboard();
     } else {
-      englishValue = localStorage.english = 'true';
+      localStorage.english = 'true';
+      englishValue = localStorage.english;
       buildKeyboard();
     }
   }
