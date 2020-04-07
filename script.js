@@ -172,9 +172,6 @@ function buildKeyboard() {
       item.addEventListener('click', addLetterToTextarea);
     }
   });
-  /* Add Event listeners to Caps Lock */
-  const caps = document.querySelector('.keyboard-button--cap');
-  caps.addEventListener('click', uppercaseValuesStable);
   /* Add Event Listeners to Backspace, Delete, Space, Tab, Enter */
   document.querySelector('.keyboard-button--bac').addEventListener('click', () => { selectionFunction('', -1, 0); });
   document.querySelector('.keyboard-button--del').addEventListener('click', () => { selectionFunction('', 0, 1); });
@@ -193,7 +190,9 @@ function buildKeyboard() {
   });
 }
 buildKeyboard();
-
+/* Add Event listeners to Caps Lock */
+const caps = document.querySelector('.keyboard-button--cap');
+caps.addEventListener('click', uppercaseValuesStable);
 document.addEventListener('keydown', (event) => {
   /* Make pressed buttons active */
   const button = document.querySelectorAll('.keyboard-button');
