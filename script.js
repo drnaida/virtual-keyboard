@@ -149,6 +149,7 @@ function buildKeyboard() {
       addItemsToTheRow(55, 64, englishValue, shiftPressed);
     }
   }
+  setTimeout(() => { console.log('Hm...'); }, 10000);
   /* Add Event Listeners to shift */
   const shift = document.querySelectorAll('.keyboard-button--shi');
   shift.forEach((item) => {
