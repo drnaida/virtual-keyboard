@@ -1,4 +1,3 @@
-function init() {
 /* Create main parts of the page */
 const textarea = document.createElement('textarea');
 const keyboard = document.createElement('div');
@@ -150,46 +149,47 @@ function buildKeyboard() {
       addItemsToTheRow(55, 64, englishValue, shiftPressed);
     }
   }
-  /* setTimeout(() => { console.log('Hm...'); }, 20000);*/
-  /* Add Event Listeners to shift */
-  const shift = document.querySelectorAll('.keyboard-button--shi');
-  shift.forEach((item) => {
-    item.addEventListener('click', () => {
-      if (shiftPressed) {
-        shiftPressed = false;
-        buildKeyboard();
-      } else {
-        shiftPressed = true;
-        buildKeyboard();
+  setTimeout(() => {
+    /* Add Event Listeners to shift */
+    const shift = document.querySelectorAll('.keyboard-button--shi');
+    shift.forEach((item) => {
+      item.addEventListener('click', () => {
+        if (shiftPressed) {
+          shiftPressed = false;
+          buildKeyboard();
+        } else {
+          shiftPressed = true;
+          buildKeyboard();
+        }
+      });
+    });
+    /* Add Event Listeners to virtual buttons */
+    const button = document.querySelectorAll('.keyboard-button');
+    button.forEach((item) => {
+      item.addEventListener('mouseover', () => { buttonHover(item); });
+      item.addEventListener('mouseout', () => { buttonHoverRemove(item); });
+      item.addEventListener('mousedown', () => { buttonPressed(item); });
+      if (item.classList.contains('keyboard-button--letter')) {
+        item.addEventListener('click', addLetterToTextarea);
       }
     });
-  });
-  /* Add Event Listeners to virtual buttons */
-  const button = document.querySelectorAll('.keyboard-button');
-  button.forEach((item) => {
-    item.addEventListener('mouseover', () => { buttonHover(item); });
-    item.addEventListener('mouseout', () => { buttonHoverRemove(item); });
-    item.addEventListener('mousedown', () => { buttonPressed(item); });
-    if (item.classList.contains('keyboard-button--letter')) {
-      item.addEventListener('click', addLetterToTextarea);
-    }
-  });
-  /* Add Event Listeners to Backspace, Delete, Space, Tab, Enter */
-  document.querySelector('.keyboard-button--bac').addEventListener('click', () => { selectionFunction('', -1, 0); });
-  document.querySelector('.keyboard-button--del').addEventListener('click', () => { selectionFunction('', 0, 1); });
-  document.querySelector('.keyboard-button--spa').addEventListener('click', () => { selectionFunction(' ', 0, 0); });
-  document.querySelector('.keyboard-button--tab').addEventListener('click', () => { selectionFunction('    ', 0, 0); });
-  document.querySelector('.keyboard-button--ent').addEventListener('click', () => { selectionFunction('\n', 0, 0); });
+    /* Add Event Listeners to Backspace, Delete, Space, Tab, Enter */
+    document.querySelector('.keyboard-button--bac').addEventListener('click', () => { selectionFunction('', -1, 0); });
+    document.querySelector('.keyboard-button--del').addEventListener('click', () => { selectionFunction('', 0, 1); });
+    document.querySelector('.keyboard-button--spa').addEventListener('click', () => { selectionFunction(' ', 0, 0); });
+    document.querySelector('.keyboard-button--tab').addEventListener('click', () => { selectionFunction('    ', 0, 0); });
+    document.querySelector('.keyboard-button--ent').addEventListener('click', () => { selectionFunction('\n', 0, 0); });
 
-  /* Add Event Listener keydown to buttons to make them active */
-  document.addEventListener('keydown', (event) => {
-    const key = event.code;
-    button.forEach((item, i) => {
-      if (buttonTextRussian[i].code === key) {
-        item.classList.add('keyboard-button--active');
-      }
+    /* Add Event Listener keydown to buttons to make them active */
+    document.addEventListener('keydown', (event) => {
+      const key = event.code;
+      button.forEach((item, i) => {
+        if (buttonTextRussian[i].code === key) {
+          item.classList.add('keyboard-button--active');
+        }
+      });
     });
-  });
+  }, 10000);
 }
 buildKeyboard();
 /* Add Event listeners to Caps Lock */
@@ -240,4 +240,3 @@ document.addEventListener('keyup', (event) => {
 });
 /* Remove active class from buttons when they are not clicked */
 window.addEventListener('mouseup', buttonPressedRemove);
-}
