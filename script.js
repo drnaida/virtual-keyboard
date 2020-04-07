@@ -1,3 +1,4 @@
+function init() {
 /* Create main parts of the page */
 const textarea = document.createElement('textarea');
 const keyboard = document.createElement('div');
@@ -149,7 +150,7 @@ function buildKeyboard() {
       addItemsToTheRow(55, 64, englishValue, shiftPressed);
     }
   }
-  setTimeout(() => { console.log('Hm...'); }, 20000);
+  /* setTimeout(() => { console.log('Hm...'); }, 20000);*/
   /* Add Event Listeners to shift */
   const shift = document.querySelectorAll('.keyboard-button--shi');
   shift.forEach((item) => {
@@ -239,3 +240,4 @@ document.addEventListener('keyup', (event) => {
 });
 /* Remove active class from buttons when they are not clicked */
 window.addEventListener('mouseup', buttonPressedRemove);
+}
