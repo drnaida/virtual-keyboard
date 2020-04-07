@@ -4,6 +4,7 @@ const keyboard = document.createElement('div');
 const operatingSystem = document.createElement('p');
 const keyToSwitchLanguage = document.createElement('p');
 const descriptionOfShift = document.createElement('p');
+const comment = document.createElement('p');
 
 /* Add classes to main parts of the page */
 keyboard.classList.add('keyboard');
@@ -11,12 +12,14 @@ textarea.classList.add('textarea');
 operatingSystem.classList.add('paragraph');
 keyToSwitchLanguage.classList.add('paragraph');
 descriptionOfShift.classList.add('paragraph');
+comment.classList.add('paragraph');
 
 operatingSystem.innerHTML = 'The keyboard was build on Windows Operating System.';
 keyToSwitchLanguage.innerHTML = 'To switch language use combination Ctrl + Alt.';
 descriptionOfShift.innerHTML = 'Sticking of shift on the virtual keyboard, when you click on it, was done consciously in order to make the keyboard more convenient to use.';
-
+comment.innerHTML = 'The Virtual Keyboard Perfectly works on my local machine (you can try to download my code and execute it on your local machine), but I can\'t get why it doesn\'t work in Chrome :(, if you know how to fix it, please write me in Discord "Anzhelika Kurnikova#7472". I will really appreciate it. :)';
 /* Make visible main parts of the page */
+document.body.append(comment);
 document.body.append(textarea);
 document.body.append(keyboard);
 document.body.append(operatingSystem);
@@ -149,52 +152,51 @@ function buildKeyboard() {
       addItemsToTheRow(55, 64, englishValue, shiftPressed);
     }
   }
-  setTimeout(() => {
-    /* Add Event Listeners to shift */
-    const shift = document.querySelectorAll('.keyboard-button--shi');
-    shift.forEach((item) => {
-      item.addEventListener('click', () => {
-        if (shiftPressed) {
-          shiftPressed = false;
-          buildKeyboard();
-        } else {
-          shiftPressed = true;
-          buildKeyboard();
-        }
-      });
-    });
-    /* Add Event Listeners to virtual buttons */
-    const button = document.querySelectorAll('.keyboard-button');
-    button.forEach((item) => {
-      item.addEventListener('mouseover', () => { buttonHover(item); });
-      item.addEventListener('mouseout', () => { buttonHoverRemove(item); });
-      item.addEventListener('mousedown', () => { buttonPressed(item); });
-      if (item.classList.contains('keyboard-button--letter')) {
-        item.addEventListener('click', addLetterToTextarea);
+  /* Add Event Listeners to shift */
+  const shift = document.querySelectorAll('.keyboard-button--shi');
+  shift.forEach((item) => {
+    item.addEventListener('click', () => {
+      if (shiftPressed) {
+        shiftPressed = false;
+        buildKeyboard();
+      } else {
+        shiftPressed = true;
+        buildKeyboard();
       }
     });
-    /* Add Event Listeners to Backspace, Delete, Space, Tab, Enter */
-    document.querySelector('.keyboard-button--bac').addEventListener('click', () => { selectionFunction('', -1, 0); });
-    document.querySelector('.keyboard-button--del').addEventListener('click', () => { selectionFunction('', 0, 1); });
-    document.querySelector('.keyboard-button--spa').addEventListener('click', () => { selectionFunction(' ', 0, 0); });
-    document.querySelector('.keyboard-button--tab').addEventListener('click', () => { selectionFunction('    ', 0, 0); });
-    document.querySelector('.keyboard-button--ent').addEventListener('click', () => { selectionFunction('\n', 0, 0); });
+  });
+  /* Add Event Listeners to virtual buttons */
+  const button = document.querySelectorAll('.keyboard-button');
+  button.forEach((item) => {
+    item.addEventListener('mouseover', () => { buttonHover(item); });
+    item.addEventListener('mouseout', () => { buttonHoverRemove(item); });
+    item.addEventListener('mousedown', () => { buttonPressed(item); });
+    if (item.classList.contains('keyboard-button--letter')) {
+      item.addEventListener('click', addLetterToTextarea);
+    }
+  });
+  /* Add Event listeners to Caps Lock */
+  const caps = document.querySelector('.keyboard-button--cap');
+  caps.addEventListener('click', uppercaseValuesStable);
+  /* Add Event Listeners to Backspace, Delete, Space, Tab, Enter */
+  document.querySelector('.keyboard-button--bac').addEventListener('click', () => { selectionFunction('', -1, 0); });
+  document.querySelector('.keyboard-button--del').addEventListener('click', () => { selectionFunction('', 0, 1); });
+  document.querySelector('.keyboard-button--spa').addEventListener('click', () => { selectionFunction(' ', 0, 0); });
+  document.querySelector('.keyboard-button--tab').addEventListener('click', () => { selectionFunction('    ', 0, 0); });
+  document.querySelector('.keyboard-button--ent').addEventListener('click', () => { selectionFunction('\n', 0, 0); });
 
-    /* Add Event Listener keydown to buttons to make them active */
-    document.addEventListener('keydown', (event) => {
-      const key = event.code;
-      button.forEach((item, i) => {
-        if (buttonTextRussian[i].code === key) {
-          item.classList.add('keyboard-button--active');
-        }
-      });
+  /* Add Event Listener keydown to buttons to make them active */
+  document.addEventListener('keydown', (event) => {
+    const key = event.code;
+    button.forEach((item, i) => {
+      if (buttonTextRussian[i].code === key) {
+        item.classList.add('keyboard-button--active');
+      }
     });
-  }, 10000);
+  });
 }
 buildKeyboard();
-/* Add Event listeners to Caps Lock */
-const caps = document.querySelector('.keyboard-button--cap');
-caps.addEventListener('click', uppercaseValuesStable);
+
 document.addEventListener('keydown', (event) => {
   /* Make pressed buttons active */
   const button = document.querySelectorAll('.keyboard-button');
