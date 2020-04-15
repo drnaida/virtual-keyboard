@@ -4,7 +4,6 @@ const keyboard = document.createElement('div');
 const operatingSystem = document.createElement('p');
 const keyToSwitchLanguage = document.createElement('p');
 const descriptionOfShift = document.createElement('p');
-const comment = document.createElement('p');
 
 /* Add classes to main parts of the page */
 keyboard.classList.add('keyboard');
@@ -12,14 +11,10 @@ textarea.classList.add('textarea');
 operatingSystem.classList.add('paragraph');
 keyToSwitchLanguage.classList.add('paragraph');
 descriptionOfShift.classList.add('paragraph');
-comment.classList.add('paragraph');
 
 operatingSystem.innerHTML = 'The keyboard was build on Windows Operating System.';
 keyToSwitchLanguage.innerHTML = 'To switch language use combination Ctrl + Alt.';
 descriptionOfShift.innerHTML = 'Sticking of shift on the virtual keyboard, when you click on it, was done consciously in order to make the keyboard more convenient to use.';
-comment.innerHTML = 'The Virtual Keyboard Perfectly works on my local machine (you can try to download my code and execute it on your local machine), but I can\'t get why it doesn\'t work in Chrome :(, if you know how to fix it, please write me in Discord "Anzhelika Kurnikova#7472". I will really appreciate it. :)';
-/* Make visible main parts of the page */
-document.body.append(comment);
 document.body.append(textarea);
 document.body.append(keyboard);
 document.body.append(operatingSystem);
