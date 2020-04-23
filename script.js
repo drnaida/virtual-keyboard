@@ -131,7 +131,8 @@ function buildKeyboard() {
     item.remove();
   });
   /* Build rows */
-  for (let i = 1; i < 6; i += 1) {
+  const amountOfRows = 6;
+  for (let i = 1; i < amountOfRows; i += 1) {
     keyboardRow = document.createElement('div');
     keyboardRow.classList.add('keyboard-row');
     keyboardRow.classList.add(`keyboard-row-${[i]}`);
