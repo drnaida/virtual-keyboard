@@ -4,23 +4,24 @@ const keyboard = document.createElement('div');
 const operatingSystem = document.createElement('p');
 const keyToSwitchLanguage = document.createElement('p');
 const descriptionOfShift = document.createElement('p');
+function initLayout() {
+  /* Add classes to main parts of the page */
+  keyboard.classList.add('keyboard');
+  textarea.classList.add('textarea');
+  operatingSystem.classList.add('paragraph');
+  keyToSwitchLanguage.classList.add('paragraph');
+  descriptionOfShift.classList.add('paragraph');
 
-/* Add classes to main parts of the page */
-keyboard.classList.add('keyboard');
-textarea.classList.add('textarea');
-operatingSystem.classList.add('paragraph');
-keyToSwitchLanguage.classList.add('paragraph');
-descriptionOfShift.classList.add('paragraph');
-
-operatingSystem.innerHTML = 'The keyboard was build on Windows Operating System.';
-keyToSwitchLanguage.innerHTML = 'To switch language use combination Ctrl + Alt.';
-descriptionOfShift.innerHTML = 'Sticking of shift on the virtual keyboard, when you click on it, was done consciously in order to make the keyboard more convenient to use.';
-document.body.append(textarea);
-document.body.append(keyboard);
-document.body.append(operatingSystem);
-document.body.append(keyToSwitchLanguage);
-document.body.append(descriptionOfShift);
-
+  operatingSystem.innerHTML = 'The keyboard was build on Windows Operating System.';
+  keyToSwitchLanguage.innerHTML = 'To switch language use combination Ctrl + Alt.';
+  descriptionOfShift.innerHTML = 'Sticking of shift on the virtual keyboard, when you click on it, was done consciously in order to make the keyboard more convenient to use.';
+  document.body.append(textarea);
+  document.body.append(keyboard);
+  document.body.append(operatingSystem);
+  document.body.append(keyToSwitchLanguage);
+  document.body.append(descriptionOfShift);
+}
+initLayout();
 /* Arrays of buttons in English and Russian */
 const buttonTextRussian = [{ code: 'Backquote', lowerCase: 'ё', upperCase: 'Ё' }, { code: 'Digit1', lowerCase: '1', upperCase: '!' }, { code: 'Digit2', lowerCase: '2', upperCase: '"' }, { code: 'Digit3', lowerCase: '3', upperCase: '№' }, { code: 'Digit4', lowerCase: '4', upperCase: ';' }, { code: 'Digit5', lowerCase: '5', upperCase: '%' }, { code: 'Digit6', lowerCase: '6', upperCase: ':' }, { code: 'Digit7', lowerCase: '7', upperCase: '?' }, { code: 'Digit8', lowerCase: '8', upperCase: '*' }, { code: 'Digit9', lowerCase: '9', upperCase: '(' }, { code: 'Digit0', lowerCase: '0', upperCase: ')' }, { code: 'Minus', lowerCase: '-', upperCase: '_' }, { code: 'Equal', lowerCase: '=', upperCase: '+' }, { code: 'Backspace', lowerCase: 'backspace', upperCase: 'backspace' },
   { code: 'Tab', lowerCase: 'tab', upperCase: 'tab' }, { code: 'KeyQ', lowerCase: 'й', upperCase: 'Й' }, { code: 'KeyW', lowerCase: 'ц', upperCase: 'Ц' }, { code: 'KeyE', lowerCase: 'у', upperCase: 'У' }, { code: 'KeyR', lowerCase: 'к', upperCase: 'К' }, { code: 'KeyT', lowerCase: 'е', upperCase: 'Е' }, { code: 'KeyY', lowerCase: 'н', upperCase: 'Н' }, { code: 'KeyU', lowerCase: 'г', upperCase: 'Г' }, { code: 'KeyI', lowerCase: 'ш', upperCase: 'Ш' }, { code: 'KeyO', lowerCase: 'щ', upperCase: 'Щ' }, { code: 'KeyP', lowerCase: 'з', upperCase: 'З' }, { code: 'BracketLeft', lowerCase: 'х', upperCase: 'Х' }, { code: 'BracketRight', lowerCase: 'ъ', upperCase: 'Ъ' }, { code: 'Backslash', lowerCase: '\\', upperCase: '/' }, { code: 'Delete', lowerCase: 'del', upperCase: 'del' },
