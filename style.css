@@ -1,0 +1,77 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard {
+  width: 52rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18rem;
+}
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 3rem;
+}
+.keyboard-button {
+  background-color: rgb(22, 135, 34);
+  color: #ffffff;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard-button--bac,
+.keyboard-button--cap {
+  width: 6rem;
+}
+.keyboard-button--spa {
+  width: 18rem;
+}
+.keyboard-button--tab {
+  width: 4.5rem;
+}
+.keyboard-button--ctr:first-child {
+  width: 6rem;
+}
+.keyboard-button--shi:first-child {
+  width: 7rem;
+}
+.keyboard-button--shi:last-child {
+  width: 3.2rem;
+}
+.keyboard-button--ent {
+  width: 8rem;
+}
+.keyboard-button--del {
+  width: 3.5rem;
+}
+
+.keyboard-button--hover {
+  background-color: rgb(26, 157, 39);
+  transition: all .2s;
+  transform: translateY(-1px);
+}
+.keyboard-button--active {
+  background-color: rgb(22, 119, 32);
+  transition: all .2s;
+  transform: translateY(2px);
+}
+.textarea {
+  width: 51.5rem;
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+.paragraph {
+  font-size: 16px;
+  margin-bottom: 0px;
+  font-family: 'Lato', sans-serif;
+}
