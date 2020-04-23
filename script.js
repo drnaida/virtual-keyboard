@@ -34,7 +34,7 @@ const buttonTextEnglish = [{ lowerCase: '`', upperCase: '~' }, { lowerCase: '1',
   { lowerCase: 'ctrl', upperCase: 'ctrl' }, { lowerCase: 'win', upperCase: 'win' }, { lowerCase: 'alt', upperCase: 'alt' }, { lowerCase: 'space', upperCase: 'space' }, { lowerCase: 'alt', upperCase: 'alt' }, { lowerCase: 'ctrl', upperCase: 'ctrl' }, { lowerCase: '&#9668;', upperCase: '&#9668;' }, { lowerCase: '&#9660;', upperCase: '&#9660;' }, { lowerCase: '&#9658;', upperCase: '&#9658;' }];
 
 /* Build keyboard */
-let englishValue = JSON.parse(localStorage.getItem('english')) || 'true';
+let englishValue = localStorage.getItem('english') || 'true';
 let shiftPressed = false;
 let isKeyDown = false;
 let keyboardRow;
@@ -205,11 +205,11 @@ document.addEventListener('keydown', (event) => {
   /* Switch languages */
   if (event.ctrlKey && event.altKey) {
     if (englishValue === 'true') {
-      localStorage.english = 'false';
+      localStorage.setItem('english', 'false');
       englishValue = localStorage.english;
       buildKeyboard();
     } else {
-      localStorage.english = 'true';
+      localStorage.setItem('english', 'true');
       englishValue = localStorage.english;
       buildKeyboard();
     }
