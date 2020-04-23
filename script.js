@@ -137,16 +137,28 @@ function buildKeyboard() {
     keyboardRow.classList.add('keyboard-row');
     keyboardRow.classList.add(`keyboard-row-${[i]}`);
     keyboard.append(keyboardRow);
+    let indexOfTheFirstItem;
+    let indexOfTheLastItem;
     if (keyboardRow.classList.contains('keyboard-row-1')) {
-      addItemsToTheRow(0, 14);
+      indexOfTheFirstItem = 0;
+      indexOfTheLastItem = 14;
+      addItemsToTheRow(indexOfTheFirstItem, indexOfTheLastItem);
     } else if (keyboardRow.classList.contains('keyboard-row-2')) {
-      addItemsToTheRow(14, 29);
+      indexOfTheFirstItem = 14;
+      indexOfTheLastItem = 29;
+      addItemsToTheRow(indexOfTheFirstItem, indexOfTheLastItem);
     } else if (keyboardRow.classList.contains('keyboard-row-3')) {
-      addItemsToTheRow(29, 42);
+      indexOfTheFirstItem = 29;
+      indexOfTheLastItem = 42;
+      addItemsToTheRow(indexOfTheFirstItem, indexOfTheLastItem);
     } else if (keyboardRow.classList.contains('keyboard-row-4')) {
-      addItemsToTheRow(42, 55);
+      indexOfTheFirstItem = 42;
+      indexOfTheLastItem = 55;
+      addItemsToTheRow(indexOfTheFirstItem, indexOfTheLastItem);
     } if (keyboardRow.classList.contains('keyboard-row-5')) {
-      addItemsToTheRow(55, 64);
+      indexOfTheFirstItem = 55;
+      indexOfTheLastItem = 64;
+      addItemsToTheRow(indexOfTheFirstItem, indexOfTheLastItem);
     }
   }
   /* Add Event Listeners to shift */
