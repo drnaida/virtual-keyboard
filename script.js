@@ -138,15 +138,15 @@ function buildKeyboard() {
     keyboardRow.classList.add(`keyboard-row-${[i]}`);
     keyboard.append(keyboardRow);
     if (keyboardRow.classList.contains('keyboard-row-1')) {
-      addItemsToTheRow(0, 14, englishValue, shiftPressed);
+      addItemsToTheRow(0, 14);
     } else if (keyboardRow.classList.contains('keyboard-row-2')) {
-      addItemsToTheRow(14, 29, englishValue, shiftPressed);
+      addItemsToTheRow(14, 29);
     } else if (keyboardRow.classList.contains('keyboard-row-3')) {
-      addItemsToTheRow(29, 42, englishValue, shiftPressed);
+      addItemsToTheRow(29, 42);
     } else if (keyboardRow.classList.contains('keyboard-row-4')) {
-      addItemsToTheRow(42, 55, englishValue, shiftPressed);
+      addItemsToTheRow(42, 55);
     } if (keyboardRow.classList.contains('keyboard-row-5')) {
-      addItemsToTheRow(55, 64, englishValue, shiftPressed);
+      addItemsToTheRow(55, 64);
     }
   }
   /* Add Event Listeners to shift */
