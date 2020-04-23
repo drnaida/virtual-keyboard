@@ -81,8 +81,8 @@ function buttonPressed(el) {
 /* Remove animation on pressed */
 function buttonPressedRemove() {
   if (isKeyDown) {
-    const button = document.querySelectorAll('.keyboard-button');
-    button.forEach((item) => {
+    const buttons = document.querySelectorAll('.keyboard-button');
+    buttons.forEach((item) => {
       item.classList.remove('keyboard-button--active');
     });
     isKeyDown = false;
@@ -161,8 +161,8 @@ function buildKeyboard() {
     });
   });
   /* Add Event Listeners to virtual buttons */
-  const button = document.querySelectorAll('.keyboard-button');
-  button.forEach((item) => {
+  const buttons = document.querySelectorAll('.keyboard-button');
+  buttons.forEach((item) => {
     item.addEventListener('mouseover', () => { buttonHover(item); });
     item.addEventListener('mouseout', () => { buttonHoverRemove(item); });
     item.addEventListener('mousedown', () => { buttonPressed(item); });
@@ -183,7 +183,7 @@ function buildKeyboard() {
   /* Add Event Listener keydown to buttons to make them active */
   document.addEventListener('keydown', (event) => {
     const key = event.code;
-    button.forEach((item, i) => {
+    buttons.forEach((item, i) => {
       if (buttonTextRussian[i].code === key) {
         item.classList.add('keyboard-button--active');
       }
@@ -194,9 +194,9 @@ buildKeyboard();
 
 document.addEventListener('keydown', (event) => {
   /* Make pressed buttons active */
-  const button = document.querySelectorAll('.keyboard-button');
+  const buttons = document.querySelectorAll('.keyboard-button');
   const key = event.code;
-  button.forEach((item, i) => {
+  buttons.forEach((item, i) => {
     if (buttonTextRussian[i].code === key) {
       item.classList.add('keyboard-button--active');
     }
@@ -227,9 +227,9 @@ document.addEventListener('keydown', (event) => {
 });
 /* Make unpressed buttons not active */
 document.addEventListener('keyup', (event) => {
-  const button = document.querySelectorAll('.keyboard-button');
+  const buttons = document.querySelectorAll('.keyboard-button');
   const key = event.code;
-  button.forEach((item, i) => {
+  buttons.forEach((item, i) => {
     if (buttonTextRussian[i].code === key) {
       item.classList.remove('keyboard-button--active');
     }
